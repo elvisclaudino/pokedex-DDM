@@ -1,4 +1,4 @@
-package com.example.pokedex_ddm
+package com.example.pokedex_ddm.db
 
 import android.content.ContentValues
 import android.content.Context
