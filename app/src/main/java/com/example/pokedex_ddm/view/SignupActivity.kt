@@ -1,4 +1,4 @@
-package com.example.pokedex_ddm.views
+package com.example.pokedex_ddm.view
 
 import android.content.Intent
 import android.os.Bundle

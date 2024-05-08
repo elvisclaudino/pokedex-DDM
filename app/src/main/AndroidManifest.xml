@@ -15,10 +15,10 @@
         android:theme="@style/Theme.PokedexDDM"
         tools:targetApi="31">
         <activity
-            android:name=".views.SignupActivity"
+            android:name=".view.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".views.LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false">
         </activity>
     </application>
