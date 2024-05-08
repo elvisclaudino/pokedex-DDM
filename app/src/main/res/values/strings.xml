@@ -6,4 +6,5 @@
     <string name="j_registrado_fa_a_seu_login">Já registrado? Faça seu login!</string>
     <string name="n_o_possui_uma_conta_cadastre_se">Não possui uma conta? Cadastre-se!</string>
     <string name="login">Login</string>
+    <string name="pokemon_image">Pokemon Image</string>
 </resources>
