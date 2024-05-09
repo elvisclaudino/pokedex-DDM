@@ -10,9 +10,20 @@ import com.bumptech.glide.Glide
 import com.example.pokedex_ddm.R
 import com.example.pokedex_ddm.domain.Pokemon
 
-class PokemonAdapter(private var pokemons: List<Pokemon?>) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
-    // Método para atualizar os dados do adapter
+class PokemonAdapter(private var pokemons: List<Pokemon?>) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+    interface OnItemClickListener {
+        fun onItemClick(pokemon: Pokemon?)
+    }
+
+    private var onItemClickListener: OnItemClickListener? = null
+
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.onItemClickListener = listener
+    }
+
+
     fun updateData(newPokemons: List<Pokemon?>) {
         pokemons = newPokemons
         notifyDataSetChanged()
@@ -49,6 +60,14 @@ class PokemonAdapter(private var pokemons: List<Pokemon?>) : RecyclerView.Adapte
                     tvType2.text = item.types[1].name.capitalize()
                 } else {
                     tvType2.visibility = View.GONE
+                }
+            }
+
+            // Defina o clique no itemView para chamar onItemClick do OnItemClickListener
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClickListener?.onItemClick(pokemons[position])
                 }
             }
         }

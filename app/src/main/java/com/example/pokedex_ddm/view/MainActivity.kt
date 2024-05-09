@@ -17,11 +17,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.content.Intent
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), PokemonAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: ActivityMainBinding
+    private lateinit var details: PokemonDetail
 
     private val viewModel by lazy {
         ViewModelProvider(this, PokemonViewModelFactory()).get(PokemonViewModel::class.java)
@@ -43,6 +46,18 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this@MainActivity, 2)
 
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = PokemonAdapter(pokemons)
+        val adapter = PokemonAdapter(pokemons)
+        adapter.setOnItemClickListener(this) // Configurar o listener de clique
+        recyclerView.adapter = adapter
     }
+
+    override fun onItemClick(pokemon: Pokemon?) {
+        // Lógica para lidar com o clique em um item da lista
+        // Por exemplo, abrir a tela de detalhes do Pokémon
+        val intent = Intent(this, details::class.java)
+        //intent.putExtra("pokemon", pokemon)
+        startActivity(intent)
+    }
+
 }
+
