@@ -1,13 +1,19 @@
 package com.example.pokedex_ddm.domain
 
-class Pokemon(
-    val number: Int,
+import java.io.Serializable
+
+data class Pokemon(
+    val id: Int,
     val name: String,
     val types: List<PokemonType>
-) {
-    val formattedName = name.capitalize()
-    val formattedNumber = number.toString().padStart(3, '0')
+) : Serializable {
+    val formattedNumber: String
+        get() = String.format("%03d", id)
 
-    val imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/$formattedNumber.png"
+    val formattedName: String
+        get() = name.capitalize()
+
+    val imageUrl: String
+        get() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png"
 }
 

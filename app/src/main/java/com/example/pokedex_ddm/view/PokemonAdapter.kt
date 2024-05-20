@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.pokedex_ddm.R
 import com.example.pokedex_ddm.domain.Pokemon
 
-class PokemonAdapter(private var pokemons: List<Pokemon?>) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+class PokemonAdapter(private var pokemons: List<Pokemon?>, private val onItemClick: (Pokemon) -> Unit) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     // Método para atualizar os dados do adapter
     fun updateData(newPokemons: List<Pokemon?>) {
@@ -49,6 +49,10 @@ class PokemonAdapter(private var pokemons: List<Pokemon?>) : RecyclerView.Adapte
                     tvType2.text = item.types[1].name.capitalize()
                 } else {
                     tvType2.visibility = View.GONE
+                }
+
+                itemView.setOnClickListener {
+                    onItemClick(item)
                 }
             }
         }

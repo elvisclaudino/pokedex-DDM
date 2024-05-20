@@ -8,6 +8,18 @@
     android:background="@drawable/background_pokemon"
     android:padding="4dp">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"
+        app:title="@string/pokemon_detail" />
+
     <ImageView
         android:id="@+id/ivDetails"
         android:layout_width="200dp"
@@ -27,8 +39,8 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/ivDetails"
-        app:layout_constraintEnd_toEndOf="@+id/ivDetails"
-        app:layout_constraintStart_toStartOf="@+id/ivDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivDetails"
         tools:text="N° 001" />
 
@@ -41,7 +53,8 @@
         android:text=""
         android:textColor="@color/white"
         android:textSize="26sp"
-        app:layout_constraintStart_toStartOf="@+id/ivDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNumberDetails"
         tools:text="Charmander" />
 
@@ -50,41 +63,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/ivDetails"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ivDetails"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameDetails">
+        app:layout_constraintTop_toBottomOf="@+id/tvNameDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvType1Detail"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/poppins_medium"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#212121"
+            android:textSize="12sp"
+            tools:text="Fire" />
+
+        <TextView
+            android:id="@+id/tvType2Detail"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/poppins_medium"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#212121"
+            android:textSize="12sp"
+            tools:text="Fire" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvType2Detail"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:background="@drawable/rounded_border"
-        android:fontFamily="@font/poppins_medium"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#212121"
-        android:textSize="12sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="203dp"
-        tools:layout_editor_absoluteY="529dp"
-        tools:text="Fire" />
-
-    <TextView
-        android:id="@+id/tvType1Detail"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:background="@drawable/rounded_border"
-        android:fontFamily="@font/poppins_medium"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#212121"
-        android:textSize="12sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="529dp"
-        tools:text="Fire" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

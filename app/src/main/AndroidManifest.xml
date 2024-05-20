@@ -30,6 +30,7 @@
             android:name=".view.MainActivity"
             android:exported="false">
         </activity>
+        <activity android:name=".view.DetailActivity" />
     </application>
 
 </manifest>

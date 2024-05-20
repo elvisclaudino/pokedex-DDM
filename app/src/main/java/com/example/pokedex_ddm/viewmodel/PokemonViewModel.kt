@@ -10,7 +10,15 @@ import kotlinx.coroutines.launch
 
 class PokemonViewModel : ViewModel() {
     var pokemons = MutableLiveData<List<Pokemon?>>()
+    var isLoading = MutableLiveData<Boolean>()
+
     init {
+        fetchPokemons()
+    }
+
+    private fun fetchPokemons() {
+        isLoading.value = true
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val pokemonsApiResult = PokemonRepository.listPokemons()
@@ -32,8 +40,11 @@ class PokemonViewModel : ViewModel() {
                         )
                     }
                 } ?: emptyList())
+
+                isLoading.postValue(false)
             } catch (e: Exception) {
                 e.printStackTrace()
+                isLoading.postValue(false)
             }
         }
     }
