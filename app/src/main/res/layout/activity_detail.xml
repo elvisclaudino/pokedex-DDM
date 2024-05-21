@@ -59,6 +59,7 @@
         tools:text="Charmander" />
 
     <LinearLayout
+        android:id="@+id/LL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -93,5 +94,15 @@
             tools:text="Fire" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSaveImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/salvar_imagem"
+        app:layout_constraintTop_toBottomOf="@+id/LL"
+        android:layout_marginTop="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -67,4 +67,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
+    // Picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
+
+
 }
