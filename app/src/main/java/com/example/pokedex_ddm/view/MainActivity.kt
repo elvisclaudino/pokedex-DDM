@@ -3,6 +3,7 @@ package com.example.pokedex_ddm.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: PokemonAdapter
+    private var showFavoritesOnly = false
 
     private val viewModel by lazy {
         ViewModelProvider(this, PokemonViewModelFactory()).get(PokemonViewModel::class.java)
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         recyclerView = findViewById(R.id.rvPokemon)
-        val adapter = PokemonAdapter(emptyList()) { pokemon ->
+        adapter = PokemonAdapter(emptyList()) { pokemon ->
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("POKEMON_DETAIL", pokemon)
             startActivity(intent)
@@ -53,4 +56,16 @@ class MainActivity : AppCompatActivity() {
             adapter.updateData(it)
         })
     }
+
+    fun filterFavorites(view: View) {
+        showFavoritesOnly = !showFavoritesOnly
+        if (showFavoritesOnly) {
+            adapter.filterFavorites()
+            (view as Button).text = "Mostrar favoritos"
+        } else {
+            adapter.showAllPokemons()
+            (view as Button).text = "Mostrar todos"
+        }
+    }
+
 }
