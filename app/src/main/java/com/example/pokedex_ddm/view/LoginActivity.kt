@@ -2,9 +2,12 @@ package com.example.pokedex_ddm.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import com.example.pokedex_ddm.R
 import com.example.pokedex_ddm.databinding.ActivityLoginBinding
 import com.example.pokedex_ddm.db.AppDatabase
 import com.example.pokedex_ddm.db.UserDao
@@ -52,8 +55,15 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
+                showErrorAnimation(binding.loginUsername)
+                showErrorAnimation(binding.loginPassword)
                 Toast.makeText(this@LoginActivity, "Falha ao realizar login", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showErrorAnimation(editText: EditText) {
+        val shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake)
+        editText.startAnimation(shakeAnimation)
     }
 }

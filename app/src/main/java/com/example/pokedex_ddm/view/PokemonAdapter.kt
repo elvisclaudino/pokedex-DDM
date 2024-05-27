@@ -3,6 +3,7 @@ package com.example.pokedex_ddm.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,9 @@ class PokemonAdapter(private var pokemons: List<Pokemon?>, private val onItemCli
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindView(pokemons[position])
+
+        val animation = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.fade_in)
+        holder.itemView.startAnimation(animation)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

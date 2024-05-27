@@ -30,6 +30,8 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        overridePendingTransition(R.anim.slide_up, 0)
+
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back)
@@ -60,6 +62,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
+        overridePendingTransition(0, R.anim.slide_down)
         return true
     }
 
