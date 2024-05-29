@@ -46,9 +46,11 @@ class MainActivity : AppCompatActivity() {
             if (isLoading) {
                 binding.progressBar.visibility = View.VISIBLE
                 binding.rvPokemon.visibility = View.GONE
+                binding.btnFilterFavorites.visibility = View.GONE
             } else {
                 binding.progressBar.visibility = View.GONE
                 binding.rvPokemon.visibility = View.VISIBLE
+                binding.btnFilterFavorites.visibility = View.VISIBLE
             }
         })
 
@@ -61,10 +63,10 @@ class MainActivity : AppCompatActivity() {
         showFavoritesOnly = !showFavoritesOnly
         if (showFavoritesOnly) {
             adapter.filterFavorites()
-            (view as Button).text = "Mostrar favoritos"
+            (view as Button).text = "Mostrar todos"
         } else {
             adapter.showAllPokemons()
-            (view as Button).text = "Mostrar todos"
+            (view as Button).text = "Mostrar favoritos"
         }
     }
 
