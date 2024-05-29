@@ -69,4 +69,15 @@ dependencies {
 
     // Picasso
     implementation("com.squareup.picasso:picasso:2.71828")
+
+    // Dependências para testes unitários
+    androidTestImplementation("junit:junit:4.13.2")
+    androidTestImplementation("org.mockito:mockito-core:3.12.4")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test:rules:1.4.0")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
 }

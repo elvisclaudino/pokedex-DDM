@@ -2,6 +2,21 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="AppDatabaseTest">
+        <State />
+      </entry>
+      <entry key="LoginActivityTest">
+        <State />
+      </entry>
+      <entry key="MainActivityClass">
+        <State />
+      </entry>
+      <entry key="PokemonRepositoryTest">
+        <State />
+      </entry>
+      <entry key="PokemonViewModelTest">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>
